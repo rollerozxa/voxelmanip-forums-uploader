@@ -42,7 +42,7 @@ if ($error == '') {
 		$sql->query("INSERT INTO uploader_files (id, cat, filename, description, user, date) values (?,?,?,?,?,?)",
 			[$nextId, $cat, $fname, $description, $loguser['id'], time()]);
 
-		$sql->query("UPDATE uploader_categories SET files = files + 1 WHERE cat = ?", [$cat]);
+		$sql->query("UPDATE uploader_categories SET files = files + 1 WHERE id = ?", [$cat]);
 
 		_pageheader('Uploaded successfully');
 

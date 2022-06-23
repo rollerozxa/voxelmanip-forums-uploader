@@ -20,19 +20,7 @@ $fsize = filesize($path);
 $parts = pathinfo($path);
 $ext = strtolower($parts["extension"]);
 
-$ctype = match ($ext) {
-	'gif' => 'image/gif',
-	'apng', 'png' => 'image/png',
-	'jpeg', 'jpg' => 'image/jpg',
-	'css' => 'text/css',
-	'txt' => 'text/plain',
-	'pdf' => 'application/pdf',
-	//'ogg', 'oga' => 'audio/ogg',
-	default => 'application/octet-stream'};
-
-$download = match ($ext) {
-	'gif', 'apng', 'png', 'jpeg', 'jpg', 'css', 'txt', 'pdf' => false,
-	default => true};
+$ctype = extToMime($ext);
 
 header("Pragma: public");
 header("Expires: 0");

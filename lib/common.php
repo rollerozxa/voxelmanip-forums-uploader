@@ -9,9 +9,10 @@ foreach (glob("lib/*.php") as $filename)
 // config
 $uconf['maxsize'] = 1*1024*1024;
 $uconf['badextensions'] = [
-	"html", "htm", "php", "php2", "php3", "php4", "php5", "php6", "htaccess", "htpasswd", "mht",
-	"js", "asp", "aspx", "cgi", "py", "exe", "com", "bat", "pif", "cmd", "lnk", "wsh", "vbs", "vbe",
-	"jse", "wsf", "msc", "pl", "rb", "shtm", "shtml", "stm", "htc"];
+	"html", "htm", "shtm", "shtml", "php", "php5", "htaccess", "htpasswd", "js", "aspx", "cgi",	// Exts that potentially could cause vulns on the server.
+	"py", "exe", "com", "bat", "pif", "cmd", "lnk", "vbs", "msc", "stm", "htc",					// General scripting/program extensions that execute on Windows, bad idea to allow them.
+	'bmp', 'avi',		// Wasteful media formats, hinder their usage.
+];
 $uconf['disclaimer'] = 'By uploading files to the uploader, you agree that you will only upload files that you own the copyright to and/or have the permission to upload.'
 	.'<br>You should neither upload files that are malicious or any other type of objectionable content.'
 	.'<br>Usage of this uploader is only intended to host files related to the Voxelmanip Forums, it is not a general-purpose file host.'

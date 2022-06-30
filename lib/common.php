@@ -65,19 +65,22 @@ function _pageheader($pagetitle = '') {
 				</td>
 				<td class="nb headermenu_right"><?php
 	if ($log)
-		printf('<span class="menulink">'.userlink($loguser).'</span> ');
+		printf('<span class="menulink">'._userlink($loguser).'</span> ');
 
 	$userlinks = [];
 
 	if (!$log)
-		$userlinks[] = ['url' => "login.php", 'title' => 'Login'];
+		$userlinks[] = ['url' => "../login.php", 'title' => 'Login'];
 	else
 		$userlinks[] = ['url' => "javascript:document.logout.submit()", 'title' => 'Logout'];
 
 	foreach ($userlinks as $v)
 		echo "<a class=\"menulink\" href=\"{$v['url']}\">{$v['title']}</a> ";
 
-	echo '</td></table><br>';
+	echo '</td></table>
+	<form action="../login.php" method="post" name="logout">
+		<input type="hidden" name="action" value="logout">
+	</form><br>';
 }
 
 function _pagefooter() {

@@ -22,3 +22,7 @@ function sizeunit($bytes, $precision = 2) {
     $bytes /= (1 << (10 * $pow));
 	return round($bytes, $precision).' '.$units[$pow];
 }
+
+function _userlink($user, $u = '') {
+	return '<a href="../profile.php?id='.$user[$u.'id'].'">'.userdisp($user, $u).'</a>';
+}

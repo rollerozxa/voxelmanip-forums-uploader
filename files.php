@@ -57,12 +57,11 @@ while ($file = $files->fetch()) {
 	?><tr class="n<?=$zebra?>">
 		<td class="b"><a href="get.php?id=<?=$file['id']?>"><?=$file['filename']?></a></td>
 		<td class="b"><?=$file['description']?></td>
-		<td class="center b"><?=userlink($file, 'u')?></td>
+		<td class="center b"><?=_userlink($file, 'u')?></td>
 		<td class="center b"><?=date('Y-m-d H:i', $file['date'])?></td>
 		<td class="center b"><?=sizeunit(filesize('files/'.$file['id'].'_'.$file['filename']))?></td>
 		<!--<td class="center b"><?=$file['downloads']?></td>-->
 	</tr><?php
-
 }
 if_empty_query($category['files']+1, "No files uploaded.", 5);
 

@@ -26,6 +26,10 @@ elseif ($filesize > $uconf['maxsize'])
 elseif (in_array($extension, $uconf['badextensions']))
 	$error = 'Uploaded file uses an extension that is not allowed.';
 
+$newest = $sql->result("SELECT date FROM uploader_files WHERE user = ? ORDER BY date DESC LIMIT 1", [$loguser['id']]);
+if ($newest >= (time() - 60))
+	$error = "You're uploading files too fast, please wait a while before uploading again.";
+
 $topbot = [
 	'breadcrumb' => [[ 'href' => 'files.php?id='.$cat, 'title' => $category['name'] ]],
 	'title' => 'Upload'

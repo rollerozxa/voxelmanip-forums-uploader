@@ -4,6 +4,7 @@ chdir('../');
 require('conf/config.php');
 include('lib/mysql.php');
 chdir('uploader');
+require('lib/formats.php');
 
 $id = $_GET['id'] ?? null;
 

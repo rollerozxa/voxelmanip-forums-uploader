@@ -8,8 +8,9 @@ $fpp = 50;
 
 $category = $sql->fetch("SELECT * FROM uploader_categories WHERE id = ?", [$id]);
 
+$notdeleted = ($loguser['powerlevel'] < 2 ? 'AND f.deleted = 0' : '');
 $ufields = userfields('u', 'u');
-$files = $sql->query("SELECT f.*, $ufields FROM uploader_files f JOIN users u ON u.id = f.user WHERE f.cat = ? ORDER BY date DESC LIMIT ?,?",
+$files = $sql->query("SELECT f.*, $ufields FROM uploader_files f JOIN users u ON u.id = f.user WHERE f.cat = ? $notdeleted ORDER BY date DESC LIMIT ?,?",
 	[$id, ($page - 1) * $fpp, $fpp]);
 
 _pageheader($category['name']);

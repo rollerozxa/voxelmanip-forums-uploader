@@ -31,7 +31,7 @@ if ($newest >= (time() - 60))
 	$error = "You're uploading files too fast, please wait a while before uploading again.";
 
 $topbot = [
-	'breadcrumb' => [[ 'href' => 'files.php?id='.$cat, 'title' => $category['name'] ]],
+	'breadcrumb' => [ 'files.php?id='.$cat => $category['name'] ],
 	'title' => 'Upload'
 ];
 

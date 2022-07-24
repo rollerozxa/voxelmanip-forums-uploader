@@ -19,7 +19,7 @@ $uconf['disclaimer'] = 'By uploading files to the uploader, you agree that you w
 	.'<br>We reserve the right to remove any files uploaded.';
 
 function _pageheader($pagetitle = '') {
-	global $sql, $log, $loguser, $boardtitle, $boardlogo, $theme, $boarddesc;
+	global $log, $loguser, $boardtitle, $boardlogo, $theme, $boarddesc;
 
 	if ($pagetitle) $pagetitle .= " - ";
 

@@ -1,6 +1,8 @@
 <?php
 require('lib/common.php');
 
+if ($loguser['powerlevel'] < 1) die('permission denied');
+
 $action = $_POST['action'] ?? null;
 $cat = $_POST['cat'] ?? null;
 $file = $_FILES['uploadedfile'] ?? null;
@@ -27,7 +29,7 @@ elseif (in_array($extension, $uconf['badextensions']))
 	$error = 'Uploaded file uses an extension that is not allowed.';
 
 $newest = $sql->result("SELECT date FROM uploader_files WHERE user = ? ORDER BY date DESC LIMIT 1", [$loguser['id']]);
-if ($newest >= (time() - 60))
+if ($newest >= (time() - 60) && $loguser['powerlevel'] < 3)
 	$error = "You're uploading files too fast, please wait a while before uploading again.";
 
 $topbot = [

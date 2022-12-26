@@ -43,10 +43,10 @@ function _pageheader($pagetitle = '') {
 	left: 0;
 	display: inline-block;
 	background: #080808;
-	color: #4cf;
-	font-size: 175%;
-	border: 2px solid #4cf;
-	padding: 3px 2px;
+	color: #38c016;
+	font-size: 21pt;
+	border: 2px solid #38c016;
+	padding: 3px 6px;
 	margin: 6px;
 }
 		</style>

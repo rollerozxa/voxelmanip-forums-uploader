@@ -51,16 +51,19 @@ if ($error == '') {
 		$sql->query("UPDATE uploader_categories SET files = files + 1 WHERE id = ?", [$cat]);
 
 		_pageheader('Uploaded successfully');
-
+		_RenderPageBar($topbot);
+		echo '<br>';
 		noticemsg('Your file has been successfully uploaded. It can be viewed or downloaded <a href="get.php?id='.$nextId.'">here</a>.', 'Uploaded successfully');
 		_pagefooter();
+		
+		die();
 	} else {
 		$error = 'An unknown error happened while trying to upload the file. Try again later or contact a staff member to let them know about it.';
 	}
-} else {
-	_pageheader('Error');
-	_RenderPageBar($topbot);
-	echo '<br>';
-	noticemsg($error);
-	_pagefooter();
 }
+
+_pageheader('Error');
+_RenderPageBar($topbot);
+echo '<br>';
+noticemsg($error);
+_pagefooter();

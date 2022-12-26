@@ -45,8 +45,8 @@ if ($log && $loguser['powerlevel'] > 0) {
 	<tr class="h">
 		<td class="b h" width="270">File</td>
 		<td class="b h">Description</td>
-		<td class="b h" width="230">Uploaded by</td>
-		<td class="b h" width="180">Date</td>
+		<td class="b h" width="190">Uploaded by</td>
+		<td class="b h" width="150">Date</td>
 		<td class="b h" width="120">Size</td>
 		<!--<td class="b h" width="100">Downloads</td>-->
 	</tr><?php
